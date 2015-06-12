@@ -1,0 +1,34 @@
+{
+  "name": "app-toolbar-menu",
+  "version": "1.0.0",
+  "authors": [
+    "Thomas Hourlier"
+  ],
+  "description": "A simple navigation bar.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "navigation",
+    "bar",
+    "router"
+  ],
+  "main": "app-toolbar-menu.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-tabs": "PolymerElements/paper-tabs#~1.0.0",
+    "iron-selector": "PolymerElements/iron-selector#~1.0.2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#~1.0.1",
+    "test-fixture": "PolymerElements/test-fixture#~1.0.0"
+  }
+}

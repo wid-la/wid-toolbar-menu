@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../app-toolbar-menu.html">
+  </head>
+  <body>
+
+    <!-- You can use the document as a place to set up your fixtures. -->
+    <test-fixture id="app-toolbar-menu">
+      <template>
+
+        <app-toolbar-menu>
+        </app-toolbar-menu>
+
+      </template>
+    </test-fixture>
+    
+
+    <script>
+      suite('<app-toolbar-menu>', function() {
+        var c1,
+            menus = [
+            {
+              routeName: 'work',
+              route: '/work',
+              title: 'WORK',
+              icon: 'info'
+            },
+            {
+              routeName: 'company',
+              route: '/company',
+              title: 'COMPANY',
+              icon: 'home'
+            },
+            {
+              routeName: 'projects',
+              route: '/projects',
+              title: 'PROJECTS',
+              icon: 'polymer'
+            },
+            {
+              routeName: 'contact',
+              route: '/contact',
+              title: 'CONTACT',
+              icon: 'communication:contacts'
+            }
+          ];
+
+        setup(function() {
+          c1 = fixture('app-toolbar-menu');
+          c1.menuItems = menus;
+          c1.currentRoute = '/work';
+        });
+
+        test('defines the "currentRoute" property', function() {
+          expect(c1.currentRoute).to.be.equal('/work');
+        });
+        test('defines the "menuItems" property', function() {
+          expect(c1.menuItems).to.deep.equal(menus);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

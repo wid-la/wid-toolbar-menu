@@ -1,0 +1,101 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../iron-selector/iron-selector.html">
+
+<!--
+A simple navigation bar.
+
+Example:
+
+    <app-toolbar-menu
+      current-route="[[route]]" 
+      menu-items="[[menuItems]]">
+    </app-toolbar-menu>
+
+### Styling
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+
+`--toolbar-menu-selection-bar` | Color for the selection bar | `--paper-tabs-selection-bar-color`
+
+`--toolbar-menu-ink` | Color for the ink | `--paper-tab-ink`
+
+`--toolbar-menu-text-color` | Color of the text | `--text-primary-color`
+
+
+@group Navigation Bar
+@element app-toolbar-menu
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="app-toolbar-menu">
+
+  <style>
+    :host {
+      display: block;
+    }
+
+    a {
+      color: var(--text-primary-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--text-primary-color);
+      text-decoration: none;
+    }
+  </style>
+
+  <template>
+    
+    <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]">
+      <template is="dom-repeat" items="[[menuItems]]">
+        <paper-tab data-route="[[item.routeName]]" link>
+          <a href="[[item.route]]" class="horizontal center-center layout">[[item.title]]</a>
+        </paper-tab>
+      </template>
+    </paper-tabs>
+
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'app-toolbar-menu',
+
+    properties: {
+
+      /**
+       * This items array will be displayed in the paper-menu.
+       * @type {[{ routeName: String, route: String, title: String, icon: String}]}
+       */
+      menuItems: {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+
+      /**
+       * Current application route.
+       * @type {String}
+       */
+      currentRoute: {
+        type: String
+      }
+    }
+  });
+
+</script>
