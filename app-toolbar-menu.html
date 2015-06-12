@@ -58,7 +58,7 @@ Custom property | Description | Default
 
   <template>
     
-    <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]">
+    <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]" noink="[[noink]]">
       <template is="dom-repeat" items="[[menuItems]]">
         <paper-tab data-route$="[[item.routeName]]">
           <a href="[[item.route]]" class="horizontal center-center layout">[[item.title]]</a>
@@ -94,6 +94,15 @@ Custom property | Description | Default
        */
       currentRoute: {
         type: String
+      },
+
+      /**
+       * Disable the ink on the paper-tabs
+       * @type {Boolean}
+       */
+      noink: {
+        type: Boolean,
+        value: false
       }
     }
   });
