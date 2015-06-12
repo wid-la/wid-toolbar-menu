@@ -60,7 +60,7 @@ Custom property | Description | Default
     
     <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]">
       <template is="dom-repeat" items="[[menuItems]]">
-        <paper-tab data-route="[[item.routeName]]">
+        <paper-tab data-route$="[[item.routeName]]">
           <a href="[[item.route]]" class="horizontal center-center layout">[[item.title]]</a>
         </paper-tab>
       </template>
