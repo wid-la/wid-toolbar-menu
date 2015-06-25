@@ -17,7 +17,7 @@ A simple navigation bar.
 Example:
 
     <app-toolbar-menu
-      current-route="[[route]]" 
+      current-route="[[route]]"
       menu-items="[[menuItems]]">
     </app-toolbar-menu>
 
@@ -57,14 +57,14 @@ Custom property | Description | Default
   </style>
 
   <template>
-    
+
     <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]" noink="[[noink]]">
       <template is="dom-repeat" items="[[menuItems]]">
 
         <paper-tab data-route$="[[item.routeName]]">
           <a href="[[item.route]]" class="horizontal center-center layout">[[item.title]]</a>
         </paper-tab>
-        
+
       </template>
     </paper-tabs>
 
@@ -106,6 +106,28 @@ Custom property | Description | Default
         type: Boolean,
         value: false
       }
+    },
+
+    /**
+     * Disable the menu. Usefull if using animation to prevent another animation.
+     */
+    disableMenu: function () {
+      var links = Polymer.dom(this.root).querySelectorAll('paper-tab');
+      links.forEach(function (l) {
+        l.style.pointerEvents = 'none';
+        l.style.cursor = 'default';
+      });
+    },
+
+    /**
+     * Enable the menu.
+     */
+    enableMenu: function () {
+      var links = Polymer.dom(this.root).querySelectorAll('paper-tab');
+      links.forEach(function (l) {
+        l.style.pointerEvents = 'auto';
+        l.style.cursor = 'pointer';
+      });
     }
   });
 
