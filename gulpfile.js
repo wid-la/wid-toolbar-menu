@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	ps = require('ps-node');
 
 var POLYSERVE_PORT = 8080,
-    elementName = 'app-toolbar-menu';
+    elementName = 'wid-toolbar-menu';
 
 var browserSyncConfig = function(path, cb) {
   bs.init({

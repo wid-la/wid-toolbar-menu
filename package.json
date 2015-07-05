@@ -1,6 +1,6 @@
 {
-  "name": "app-toolbar-menu",
-  "version": "1.0.0",
+  "name": "wid-toolbar-menu",
+  "version": "1.0.1",
   "authors": [
     "Thomas Hourlier"
   ],
@@ -12,7 +12,7 @@
     "bar",
     "router"
   ],
-  "main": "app-toolbar-menu.html",
+  "main": "wid-toolbar-menu.html",
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/<USERNAME>/app-toolbar-menu/",
   "ignore": [
