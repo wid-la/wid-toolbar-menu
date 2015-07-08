@@ -61,7 +61,7 @@ Custom property | Description | Default
     <paper-tabs attr-for-selected="data-route" selected="[[currentRoute]]" noink="[[noink]]">
       <template is="dom-repeat" items="[[menuItems]]">
 
-        <paper-tab data-route$="[[item.routeName]]">
+        <paper-tab data-route$="[[item.route]]">
           <a href="[[item.route]]" class="horizontal center-center layout">[[item.title]]</a>
         </paper-tab>
 
@@ -81,7 +81,7 @@ Custom property | Description | Default
 
       /**
        * This items array will be displayed in the paper-menu.
-       * @type {[{ routeName: String, route: String, title: String, icon: String}]}
+       * @type {[{ route: String, title: String, icon: String}]}
        */
       menuItems: {
         type: Array,
