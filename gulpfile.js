@@ -2,6 +2,10 @@ var gulp = require('gulp'),
 	bs = require('browser-sync').create(),
 	bg = require("gulp-bg"),
 	ps = require('ps-node');
+var git = require('gulp-git');
+var bump = require('gulp-bump');
+var tag_version = require('gulp-tag-version');
+var filter = require('gulp-filter');
 
 var POLYSERVE_PORT = 8080,
     elementName = 'wid-toolbar-menu';
@@ -55,3 +59,22 @@ gulp.task('test:watch', ['polyserve'], function(cb) {
 });
 
 try { require('web-component-tester').gulp.init(gulp); } catch (err) {}
+
+function inc(importance) {
+  // get all the files to bump version in
+  return gulp.src(['./package.json', './bower.json'])
+    // bump the version number in those files
+    .pipe(bump({type: importance}))
+    // save it back to filesystem
+    .pipe(gulp.dest('./'))
+    // commit the changed version number
+    .pipe(git.commit('bumps package version'))
+    // read only one file to get the version number 
+    .pipe(filter('bower.json'))
+    // **tag it in the repository**
+    .pipe(tag_version());
+}
+
+gulp.task('patch', function() { return inc('patch'); });
+gulp.task('feature', function() { return inc('minor'); });
+gulp.task('release', function() { return inc('major'); });

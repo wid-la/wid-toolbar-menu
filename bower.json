@@ -2,7 +2,7 @@
   "name": "wid-toolbar-menu",
   "version": "1.0.3",
   "authors": [
-    "Thomas Hourlier"
+    "Thomas Hourlier <hourliert@gmail.com>"
   ],
   "description": "A simple navigation bar.",
   "keywords": [
@@ -13,8 +13,8 @@
     "router"
   ],
   "main": "wid-toolbar-menu.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "license": "MIT",
+  "homepage": "https://github.com/wid-la/wid-toolbar-menu",
   "ignore": [
     "/.*",
     "/test/",
